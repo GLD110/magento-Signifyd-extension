@@ -1,0 +1,17 @@
+{
+  "name": "signifyd/module-connect",
+  "description": "Signifyd integration for Magento",
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "magento/magento-composer-installer": "*",
+	"signifyd/signifyd-php":"0.1.*"
+  },
+  "type": "magento2-module",
+  "version": "1.0",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Signifyd\\Connect\\": ""
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout version="0.1.0">
+    <default>
+	 <reference name="left">
+		<block type="bestseller/bestseller"  name="catalog.bestseller.left" after="-">
+		 <action method="setTemplate" ifconfig="bestseller/general/enabledleft">
+               <template>bestseller/bestseller.phtml</template>
+          </action>
+		</block>         	
+        </reference>
+	
+	<reference name="right">
+		<block type="bestseller/bestseller" before="tags_popular"  name="catalog.bestseller.right" after="-">
+		 <action method="setTemplate" ifconfig="bestseller/general/enabledright">
+               <template>bestseller/bestseller.phtml</template>
+          </action>
+		</block>         	
+        </reference>  
+   </default> 
+</layout>
+

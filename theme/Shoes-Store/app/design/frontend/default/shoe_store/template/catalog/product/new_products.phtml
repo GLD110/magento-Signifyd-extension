@@ -1,0 +1,170 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('brands')->toHtml() ?>
+<?php // if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<h2 class="subtitle newproducts_subtitle"><?php echo $this->__('New Products') ?></h2>
+<div class="newproducts_container">
+<div class="newproducts row-fluid">
+<?php
+$_productCollection = Mage::getModel('catalog/product')
+ ->getCollection()
+ ->joinField('category_id', 'catalog/category_product', 'category_id', 'product_id = entity_id', null, 'left')
+ ->addAttributeToSelect('*')
+ ->addAttributeToFilter('category_id', array(
+     array('finset' => '8'))
+ )
+ ->addAttributeToSort('created_at', 'desc');
+?>
+<ul class="products-grid span4">
+<?php $i=0; foreach ($_productCollection as $_product) { $i++; if($i>=3){ break; } ?>
+<li class="item">
+<?php if($i==1) { ?><h3 class="product-name"><a title="Motorola" href="<?php echo $_product->getProductUrl() ?>">
+Kids
+<span> Shoes</span>
+</a>
+</h3><?php } ?>
+            <!--<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getName(); ?><span> <?php echo $_product->getProduct_color_text() ?></span></a></h2>-->
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(301,214) ?>" width="301" height="214" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                <p class="short_desc">  <?php $_description = $_product->getShortDescription();
+						if(strlen($_description) <= 50)
+						{
+							echo $_description;
+						}
+						else{
+	echo substr($_description,0,50).'...';
+						}?></p>
+                <?php if($_product->getRatingSummary()): ?>
+                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php endif; ?>
+                <?php echo $this->getPriceHtml($_product, true) ?>
+<div class="actions">
+
+                    <a class="details" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo 'Details' ?>"><?php echo 'Details'; ?></a>
+                </div>
+<div class="clear"></div>
+<?php if($i==1) { ?>
+<div class="box-shadow"></div>
+<?php } ?>
+</li>
+<?php } ?> 
+</ul>
+<?php
+$_productCollection = Mage::getModel('catalog/product')
+ ->getCollection()
+ ->joinField('category_id', 'catalog/category_product', 'category_id', 'product_id = entity_id', null, 'left')
+ ->addAttributeToSelect('*')
+ ->addAttributeToFilter('category_id', array(
+     array('finset' => '5'))
+ )
+ ->addAttributeToSort('created_at', 'desc');
+?>
+<ul class="products-grid span4">
+<?php $i=0; foreach ($_productCollection as $_product) { $i++; if($i>=3){ break; } ?>
+<li class="item">
+<?php if($i==1) { ?><h3 class="product-name"><a title="Motorola" href="<?php echo $_product->getProductUrl() ?>">
+Men
+<span> Shoes</span>
+</a>
+</h3><?php } ?>
+<!--<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getName(); ?><span> <?php echo $_product->getProduct_color_text() ?></span></a></h2>-->
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(301,214) ?>" width="301" height="214" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                <p class="short_desc">  <?php $_description = $_product->getShortDescription();
+						if(strlen($_description) <= 50)
+						{
+							echo $_description;
+						}
+						else{
+	echo substr($_description,0,50).'...';
+						}?></p>
+                <?php if($_product->getRatingSummary()): ?>
+                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php endif; ?>
+                <?php echo $this->getPriceHtml($_product, true) ?>
+<div class="actions">
+
+                    <a class="details" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo 'Details' ?>"><?php echo 'Details'; ?></a>
+                </div>
+<div class="clear"></div>
+<?php if($i==1) { ?>
+<div class="box-shadow"></div>
+<?php } ?>
+</li>
+<?php } ?> 
+</ul>
+<?php
+$_productCollection = Mage::getModel('catalog/product')
+ ->getCollection()
+ ->joinField('category_id', 'catalog/category_product', 'category_id', 'product_id = entity_id', null, 'left')
+ ->addAttributeToSelect('*')
+ ->addAttributeToFilter('category_id', array(
+     array('finset' => '6'))
+ )
+ ->addAttributeToSort('created_at', 'desc');
+?>
+<ul class="products-grid last span4">
+<?php $i=0; foreach ($_productCollection as $_product) { $i++; if($i>=3){ break; } ?>
+<li class="item">
+<?php if($i==1) { ?><h3 class="product-name"><a title="Motorola" href="<?php echo $_product->getProductUrl() ?>">
+Women
+<span> Shoes</span>
+</a>
+</h3><?php } ?>
+            <!--<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getName(); ?><span> <?php echo $_product->getProduct_color_text() ?></span></a></h2>-->
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(301,214) ?>" width="301" height="214" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                <p class="short_desc">  <?php $_description = $_product->getShortDescription();
+						if(strlen($_description) <= 50)
+						{
+							echo $_description;
+						}
+						else{
+	echo substr($_description,0,50).'...';
+						}?></p>
+                <?php if($_product->getRatingSummary()): ?>
+                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php endif; ?>
+                <?php echo $this->getPriceHtml($_product, true) ?>
+<div class="actions">
+
+                    <a class="details" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo 'Details' ?>"><?php echo 'Details'; ?></a>
+                </div>
+<div class="clear"></div>
+<?php if($i==1) { ?>
+<div class="box-shadow"></div>
+<?php } ?>
+</li>
+<?php } ?> 
+</ul>
+</div>
+</div>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('browse_all')->toHtml() ?>

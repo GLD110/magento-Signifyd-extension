@@ -1,0 +1,34 @@
+<?php
+/**
+ *
+ * Edition :- Community 
+ * Developed By :- virendra Kumar Sharma
+ * 
+ */
+?>
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<div class="block block-related">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Best Sellers') ?></span></strong>
+    </div>
+    <div class="block-content">      
+        <ol class="mini-products-list" id="block-mostviewed">
+        <?php $i=1; foreach ($_products->getItems() as $_item): ?>
+            <li class="item">                
+                <div class="product" style="margin-left: 0px;">
+                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                    <div class="product-details">
+                        <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+                    </div>
+                    <div class="desc std">
+                        <?php echo $_helper->productAttribute($_item, $_item->getShortDescription(), 'short_description') ?>
+                        <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $_itemNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach ?>
+        </ol>
+        <script type="text/javascript">decorateList('block-mostviewed', 'none-recursive')</script>
+    </div>    
+</div>
+<?php endif ?>

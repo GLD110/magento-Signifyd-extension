@@ -1,0 +1,302 @@
+<?php
+
+/**
+
+ * Magento
+
+ *
+
+ * NOTICE OF LICENSE
+
+ *
+
+ * This source file is subject to the Academic Free License (AFL 3.0)
+
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+
+ * It is also available through the world-wide-web at this URL:
+
+ * http://opensource.org/licenses/afl-3.0.php
+
+ * If you did not receive a copy of the license and are unable to
+
+ * obtain it through the world-wide-web, please send an email
+
+ * to license@magentocommerce.com so we can send you a copy immediately.
+
+ *
+
+ * DISCLAIMER
+
+ *
+
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+
+ * versions in the future. If you wish to customize Magento for your
+
+ * needs please refer to http://www.magentocommerce.com for more information.
+
+ *
+
+ * @category    design
+
+ * @package     base_default
+
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+
+ */
+
+?>
+
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+
+<title><?php echo $this->getTitle() ?></title>
+
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+
+<!--[if lt IE 7]>
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+
+//]]>
+
+</script>
+
+<![endif]-->
+
+<?php echo $this->getCssJsHtml() ?>
+
+<?php echo $this->getChildHtml() ?>
+
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+
+<?php echo $this->getIncludes() ?>
+
+<script src="<?php echo $this->getSkinUrl('js/mdl/ajax_cart.js') ?>" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+var price, sepstr, firstpart, secondpart, currency;
+
+jQuery(document).ready(function() {
+
+	jQuery('.newproducts .price-box .regular-price .price, .newproducts .old-price .price, .newproducts .special-price .price, .category-products .price-box .regular-price .price, .category-products .old-price .price, .category-products .special-price .price, .product-shop .price-box .regular-price .price, .product-shop .old-price .price, .product-shop .special-price .price').each(function(){
+
+		price = jQuery.trim(jQuery(this).text());
+
+sepstr = price.split('.');
+
+		firstpart = sepstr[0];
+
+		secondpart = sepstr[1];
+
+		currency = firstpart[0];
+
+firstpart = firstpart.replace(currency,'');
+
+jQuery(this).html('<span class="cur_sym">'+ currency +'</span><span class="price_int">'+ firstpart +'.</span><span class="price_deci">'+ secondpart +'</span>');
+
+	});
+
+});
+
+</script>
+
+<!--<script type="text/javascript">
+
+jQuery(document).ready(function() {
+
+    jQuery(".carousel").carousel({
+
+		interval: 2000
+
+        /*scroll: 1,
+
+		wrap: 'circular',*/
+
+		//wrap: 'circular',
+
+        // This tells jCarousel NOT to autobuild prev/next buttons
+
+        /*buttonNextHTML: null,
+
+        buttonPrevHTML: null*/
+
+    });
+
+});
+
+</script>-->
+
+<!--[if lt IE 8]>
+
+<link rel="stylesheet" type="text/css" id="res1" />
+
+<link rel="stylesheet" type="text/css" id="res2" />
+
+<link rel="stylesheet" type="text/css" id="res3" />
+
+<link rel="stylesheet" type="text/css" id="res4" />
+
+<link rel="stylesheet" type="text/css" id="res5" />
+
+<link rel="stylesheet" type="text/css" id="res6" />
+
+<link rel="stylesheet" type="text/css" id="res7" />
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+
+	
+
+function adjustStyle(width) {
+
+    width = parseInt(width);
+
+    if (width >= 1200) {
+
+        jQuery("#res1").attr("href", "<?php echo $this->getSkinUrl('css/min1200.css'); ?>");
+jQuery("#res2").removeAttr("href");jQuery("#res3").removeAttr("href");jQuery("#res4").removeAttr("href");jQuery("#res5").removeAttr("href");jQuery("#res6").removeAttr("href");jQuery("#res7").removeAttr("href");
+    } else
+	{
+		jQuery("#res1").removeAttr("href");
+	}
+	if ((width <= 1024)) 
+
+	{
+
+		jQuery("#res1").attr("href", "<?php echo $this->getSkinUrl('css/max1024.css'); ?>");
+
+			if(width <= 980)
+
+			{
+
+			jQuery("#res2").attr("href", "<?php echo $this->getSkinUrl('css/max979.css'); ?>");
+
+				if((width <= 767))
+
+				{
+
+					jQuery("#res5").attr("href", "<?php echo $this->getSkinUrl('css/max767.css'); ?>");
+
+					if(width <= 480)
+
+					{
+
+					jQuery("#res6").attr("href", "<?php echo $this->getSkinUrl('css/max480.css'); ?>");
+
+							if(width <= 420)
+
+							{
+
+							jQuery("#res7").attr("href", "<?php echo $this->getSkinUrl('css/max420.css'); ?>");
+
+							}
+
+							else{jQuery("#res7").removeAttr("href");}
+
+					}
+
+					else{jQuery("#res6").removeAttr("href");jQuery("#res7").removeAttr("href");}
+
+				}
+
+				else{jQuery("#res5").removeAttr("href");jQuery("#res6").removeAttr("href");jQuery("#res7").removeAttr("href");}
+
+			}
+
+else{jQuery("#res2").removeAttr("href");jQuery("#res5").removeAttr("href");jQuery("#res6").removeAttr("href");jQuery("#res7").removeAttr("href");}
+
+   	 
+if ((width >= 768) && (width <= 979)) {
+
+				jQuery("#res3").attr("href", "<?php echo $this->getSkinUrl('css/min768px_max979px.css'); ?>");
+
+				}
+
+				else{jQuery("#res3").removeAttr("href");}
+
+				if((width >= 600) && (width <= 800))
+
+				{
+
+				jQuery("#res4").attr("href", "<?php echo $this->getSkinUrl('css/min600px_max800px.css'); ?>");
+
+				}
+
+				else{jQuery("#res4").removeAttr("href");}
+				}
+}
+
+
+
+jQuery(function() {
+
+    adjustStyle(jQuery(this).width());
+
+    jQuery(window).resize(function() {
+
+        adjustStyle(jQuery(this).width());
+
+    });
+
+});
+
+});
+
+</script><![endif]-->
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+
+jQuery(window).scroll(function () {
+
+			if (jQuery(this).scrollTop() > 100) {
+
+				jQuery('#back-top').fadeIn();
+
+			} else {
+
+				jQuery('#back-top').fadeOut();
+
+			}
+
+		});
+
+
+
+		// scroll body to 0px on click
+
+		jQuery('#back-top a').click(function () {
+
+			jQuery('body,html').animate({
+
+				scrollTop: 0
+
+			}, 800);
+
+			return false;
+
+		});
+
+				});
+
+</script>

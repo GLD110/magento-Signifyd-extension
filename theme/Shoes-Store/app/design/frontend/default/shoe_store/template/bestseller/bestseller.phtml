@@ -1,0 +1,59 @@
+<?php
+/**
+ *
+ * Edition :- Community 
+ * Developed By :- virendra Kumar Sharma
+ * 
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<div class="block block-related">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Best Sellers') ?></span></strong>
+    </div>
+    <div class="block-content">      
+        <ol class="mini-products-list" id="block-mostviewed">
+        <?php $i=1; foreach ($_products->getItems() as $_item): $i++; if($i==5){break;} ?>
+            <li class="item">                
+                <div class="product" style="margin-left: 0px;">
+                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail') ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                    <div class="product-details">
+                        <a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a><br/>
+                        <?php $product = Mage::getModel('catalog/product')->load($_item->getId());
+						$_description = $product->getShortDescription();
+						if(strlen($_description) <= 40)
+						{
+							echo $_description;
+						}
+						else{
+	echo substr($_description,0,40).'...';
+						}
+	/*$Price = $Product->getPrice();
+	$FinalPrice = $Product->getFinalPrice();*/?>
+
+                    </div>
+                    <div class="product-details">
+                    <?php
+$price = $product->getPrice();
+$webprice = $product->getwebprice();
+$specialprice = $product->getFinalPrice();
+if($specialprice==$price)
+{?>
+<span class="price">Price <span class="price_color">$<?php echo number_format($price,2);?></span></span>
+<?php } else { ?>
+<div class="regular-price">
+<span class="price">$ <?php echo number_format($price,2); ?></span>
+</div>
+<div class="special-price">
+<span class="price">$ <?php echo number_format($specialprice,2); ?> </span>
+</div>
+<?php } ?> 
+</div>
+                </div>
+            </li>
+        <?php endforeach ?>
+        </ol>
+        <script type="text/javascript">decorateList('block-mostviewed', 'none-recursive')</script>
+    </div>    
+</div>
+<?php endif ?>

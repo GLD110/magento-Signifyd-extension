@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss" ifconfig="custom_menu/general/enabled"><stylesheet>css/custommenu.css</stylesheet></action>
+            <action method="addItem" ifconfig="custom_menu/general/enabled"><type>skin_js</type><name>js/custommenu.js</name></action>
+        </reference>
+        <reference name="catalog.topnav">
+            <action method="setTemplate" ifconfig="custom_menu/general/enabled"><template>custommenu/top.phtml</template></action>
+        </reference>
+    </default>
+</layout>

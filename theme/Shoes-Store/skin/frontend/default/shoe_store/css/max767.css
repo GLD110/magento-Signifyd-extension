@@ -1,0 +1,128 @@
+body {
+ padding-right: 20px;
+ padding-left: 20px;
+}
+ .navbar-fixed-top,  .navbar-fixed-bottom,  .navbar-static-top {
+ margin-right: -20px;
+ margin-left: -20px;
+}
+ .container-fluid {
+ padding: 0;
+}
+ .dl-horizontal dt {
+ float: none;
+ width: auto;
+ clear: none;
+ text-align: left;
+}
+ .dl-horizontal dd {
+ margin-left: 0;
+}
+ .container {
+ width: auto;
+}
+ .row-fluid {
+ width: 100%;
+}
+ .row,  .thumbnails {
+ margin-left: 0;
+}
+ .thumbnails > li {
+ float: none;
+ margin-left: 0;
+}
+ [class*="span"],  .row-fluid [class*="span"] {
+ display: block;
+ float: none;
+ width: 100%;
+ margin-left: 0;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+}
+ .span12,  .row-fluid .span12 {
+ width: 100%;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+}
+ .input-large,  .input-xlarge,  .input-xxlarge,  input[class*="span"],  select[class*="span"],  textarea[class*="span"],  .uneditable-input {
+ display: block;
+ width: 100%;
+ min-height: 30px;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+}
+ .input-prepend input,  .input-append input,  .input-prepend input[class*="span"],  .input-append input[class*="span"] {
+ display: inline-block;
+ width: auto;
+}
+ .controls-row [class*="span"] + [class*="span"] {
+ margin-left: 0;
+}
+ .modal {
+ position: fixed;
+ top: 20px;
+ right: 20px;
+ left: 20px;
+ width: auto;
+ margin: 0;
+}
+ .modal.fade.in {
+ top: auto;
+}
+ ul.promo {
+ margin: 10px 0 0;
+ padding: 0;
+}
+ .quickBtn {
+display:none;
+}
+
+/* Theme Styles */
+
+.header-top-container, .header-container, .nav-container, .mobMenu, .main-container, .footer-container, .footer-links, .footer_top_arrow, .footer_bot_arrow, .home_banner_container{ margin-left:-18px; margin-right:-18px;}
+.links{ float:none;width: auto !important;}
+.links a{border:none !important;padding-bottom: 0;}
+.header-top .bscclearfix{display:inline-block;}
+.header .welcome-msg{text-align:center;}
+.header .quick-access, .header .logo{ padding:0; width:100%;text-align: center;}
+.header .links{width: 170px !important;margin: 0 auto !important;display: block !important;}
+.mycartcheck{ float:none !important;margin:0 auto !important;width: 240px !important;}
+#menuInnner{ width:100%;margin-top:9px;}
+#menuInnner ul ul li{ padding-left:10px;}
+.footer-block, .sharelinks .content{width:300px; margin:0 auto;}
+.footer .span4{padding-bottom:10px;}
+.products-grid.first .product-name{}
+.products-grid.first li.item.first .product-name{background:none;}
+.home_banner img{/*max-width:300px;*/}
+.cart .totals{clear:both;}
+.col-left { clear:both;}
+.featured_brands.row-fluid .span3{margin-left:0 !important;margin-bottom: 10px;}
+.mousetrap, #track_hint, .return_previous_page{display:none !important;}
+.toolbar .pager{border-bottom:none;text-align: center;}
+.toolbar .sorter{display:none!important;}
+.category-products .products-grid li.item.first{/*margin-left:0;*/}
+.header-top-container .links a, .header-top-container .links li.last a{background:none;}
+.store_languages_search_con{float:none !important;margin:0 auto;}
+#back-top{display:none!important;}
+.product-view .product-img-box .product-image-zoom{margin:0 auto;}
+.review_email_con, .add_to_cart_con, .add-to-cart button.button, .topprice_con{float:none!important;text-align: center;}
+.add_to_links_con {float: none!important;margin: 0 auto;text-align: center;width: 150px;}
+.email-friend{display:block; background:none;}
+.more-views{margin-top: 10px;}
+.product-view .tabs li.active{border-bottom:3px solid #d5d5d5 !important;width: 100%;}
+.product-view .tabs li {width: 80%;margin:0 0 5px!important;}
+.header-top-container .links li.last{background:none !important;}
+.product-view, .block{margin: 0px auto 15px; max-width: 500px;}
+.col-right{margin-top:15px;}	
+.breadcrumbs ul{display:block; text-align:center;}
+.col2-left-layout .products-grid, .col2-right-layout .products-grid, .products-grid-brand, .newproducts_container{max-width:500px;margin: 0 auto !important;}
+.browse_all, .col-main .std .subtitle, .page-title.category-title h1{text-align:center;}
+ul.products-grid.odd li.item, ul.products-grid.even li.item, .newproducts .products-grid{background:none;}
+ol#products-list{margin: 0 5%;}
+ul.level1-menu{display:block !important;}
+#menuInnner ul ul.level1-menu li{ padding-left:0;}
+.row-fluid .span3{*width:auto !important;}
+.header-top .links.bscclearfix{width: 260px !important; margin:0 auto !important;}

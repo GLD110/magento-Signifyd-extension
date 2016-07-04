@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<layout>    
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/cloud-zoom.css</stylesheet>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/cloud-zoom.1.0.2.min.js</name>
+            </action>
+        </reference>
+		
+        <reference name="product.info.media">
+            <action method="setTemplate" ifconfig="magic_cloudzoom/general/enabled">
+                <template>magic/catalog/product/view/media.phtml</template>
+            </action>
+        </reference>
+    </catalog_product_view>
+    
+    <review_product_list translate="label">
+        <reference name="head">
+            <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addCss">
+                <stylesheet>css/cloud-zoom.css</stylesheet>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/cloud-zoom.1.0.2.min.js</name>
+            </action>
+        </reference>
+ 
+        <reference name="product.info.media">
+            <action method="setTemplate" ifconfig="magic_cloudzoom/general/enabled">
+                <template>magic/catalog/product/view/media.phtml</template>
+            </action>
+        </reference>
+    </review_product_list>
+</layout>

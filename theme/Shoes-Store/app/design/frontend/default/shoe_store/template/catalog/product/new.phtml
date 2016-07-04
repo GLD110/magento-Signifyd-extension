@@ -1,0 +1,96 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('brands')->toHtml() ?>
+<?php // if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<h2 class="subtitle newproducts_subtitle"><?php echo $this->__('New Products') ?></h2>
+<div class="newproducts_container">
+<div class="newproducts row-fluid">
+<?php /*$_columnCount = $this->getColumnCount(); $_columnCount = 3;?>
+    <?php $i=0;foreach ($_products->getItems() as $_product): ?>
+        <?php if ($i++%$_columnCount==0):?>
+        <ul class="products-grid">
+        <?php endif ?>
+            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?> span4">
+            <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>"><?php echo $_product->getName() ?><span> <?php echo $_product->getProduct_color_text() ?></span></a></h3>
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(301,214) ?>" width="301" height="214" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+                <p class="short_desc">  <?php $_description = $_product->getShortDescription();
+						if(strlen($_description) <= 50)
+						{
+							echo $_description;
+						}
+						else{
+	echo substr($_description,0,50).'...';
+						}?></p>
+                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php echo $this->getPriceHtml($_product, true, '-new') ?>
+                <div class="actions">
+
+                    <a class="details" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo 'Details' ?>"><?php echo 'Details'; ?></a>
+                </div>
+                <div class="box-shadow"></div>
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==count($_products)): ?>
+        </ul>
+        <?php endif ?>
+    <?php endforeach; */?>
+    <!--<script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>-->
+<?php $catid=8 ;?> 
+<?php
+$category = new Mage_Catalog_Model_Category();
+$category->load($catid); //My cat id is 10
+$prodCollection = $category->getProductCollection();
+$_helper = $this->helper('catalog/output');
+?>
+<ul class="products-grid">
+<?
+foreach ($prodCollection as $_product) {
+?>
+<li class="item span4">
+            <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>"><?php echo $_product->getName() ?><span> <?php echo $_product->getProduct_color_text() ?></span></a></h3>
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(301,214) ?>" width="301" height="214" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+                <p class="short_desc">  <?php $_description = $_product->getShortDescription();
+						if(strlen($_description) <= 50)
+						{
+							echo $_description;
+						}
+						else{
+	echo substr($_description,0,50).'...';
+						}?></p>
+                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php echo $this->getPriceHtml($_product, true, '-new') ?>
+                <div class="actions">
+
+                    <a class="details" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo 'Details' ?>"><?php echo 'Details'; ?></a>
+                </div>
+                <div class="box-shadow"></div>
+<?php
+//$prdIds[] = $product->getId(); ///Store all th eproduct id in $prdIds array
+}?>
+</ul>
+</div>
+</div>
+<?php // endif; ?>

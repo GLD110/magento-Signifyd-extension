@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magic_Catalog>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Magic_Catalog>
+    </modules>
+</config>

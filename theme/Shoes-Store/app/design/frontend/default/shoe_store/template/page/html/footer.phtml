@@ -1,0 +1,59 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<footer>
+<article class="footer_article">
+<section cite="footer_first_section">
+<div class="footer_top_arrow"></div>
+<div class="footer-container">
+    <div class="footer container">
+    <div class="span12">
+        <div class="newsletter foot_pipe span4">
+        <?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe.phtml')->toHtml(); ?>
+        </div>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('bottom_links')->toHtml() ?> 
+        
+    </div>
+            </div>
+</div>
+<div class="footer_bot_arrow"></div>
+</section>
+<section cite="footer_second_section">
+<div class="footer-links">
+<div class="footer container">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_links')->toHtml() ?> 
+<?php echo $this->getChildHtml('footer_links') ?>
+<!--        <p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong><?php echo $this->__('Report All Bugs') ?></strong></a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?></p>-->
+<div>
+        <address><?php echo $this->getCopyright() ?></address>
+<?php echo $this->getChildHtml('store_switcher') ?>
+<p class="poweredby" style="clear: both; text-align: center; line-height: 10px;margin-top: 5px;">Designed by <a class="bsetec" title="BseTec Themes" target="_blank" href="http://bsetec.com" style="display: inline; color: rgb(235, 86, 155);">BseTec Themes</a> | Powered by <a class="magento" title="Magento"  target="_blank" href="http://magentocommerce.com" style="display: inline; color: rgb(239, 59, 41);">Magento</a></p>
+</div>
+</div>
+</div>
+</section>
+</article>
+</footer>

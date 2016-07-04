@@ -1,0 +1,169 @@
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<style>
+.quickBox .product-options {
+    width: 260px;
+}
+.quickBox .product-options-bottom{background:none;}
+</style>
+
+<div class="product-view quickBox" style="width:798px"> <a id="quick_close" href="JavaScript:Void(0)"></a>
+  <div class="product-essential" style="width:747px">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+      <div class="no-display">
+        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+        <input type="hidden" name="related_product" id="related-products-field" value="" />
+      </div>
+      <div class="quick_product">
+        <div class="product-name">
+          <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+        </div>
+        <div class="product-img-box"> <?php echo $this->getChildHtml('media') ?> </div>
+        <div class="quick_right pro-right content">
+          <div class="rating_pan" id="target_rating"><?php echo $this->getReviewsSummaryHtml($_product, false, true)?></div>
+            <script type="text/javascript">
+		jQuery(document).ready(function() {
+			jQuery('#target_rating').hover(function(){
+				jQuery('.rating-links a').attr('target','_parent').attr('href','<?php echo $_product->getProductUrl() ?>#product_tabs_tabreviews');
+				jQuery('.no-rating a').attr('target','_parent').attr('href','<?php echo $_product->getProductUrl() ?>#product_tabs_tabreviews');
+				});
+		});
+ 
+		</script>
+          <?php echo $this->getChildHtml('product_type_data') ?>
+          <div class="quick_cart">
+            <?php if (!$this->hasOptions()):?>
+            <div class="add-to-box">
+              <?php if($_product->isSaleable()): ?>
+              <?php echo $this->getChildHtml('addtocart') ?>
+              <?php endif; ?>
+            </div>
+            <?php endif; ?>
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+            <?php endif;?>
+          </div>
+          <div class="view_product"><a target="_parent" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>">View Product Details</a></div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </form>
+    <script type="text/javascript">
+
+    //<![CDATA[
+
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+
+    	productAddToCartForm.submit = function(button, url) {
+
+		if (this.validator.validate()) {
+
+			var form = this.form;
+
+			var oldUrl = form.action;
+
+			if (url) {
+
+				form.action = url;
+
+			}
+
+			var e = null;
+
+			// Start of our new ajax code
+
+			if (!url) {
+
+				url = jQuery('#product_addtocart_form').attr('action');
+
+			}
+
+			url = url.replace("checkout/cart","ajax/index"); // New Code
+
+			var data = jQuery('#product_addtocart_form').serialize();
+
+			data += '&isAjax=1';
+
+			jQuery('#ajax_loader').show();
+
+			try {
+
+				jQuery.ajax( {
+
+					url : url,
+
+					dataType : 'json',
+
+					type : 'post',
+
+					data : data,
+
+					success : function(data) {
+
+						jQuery('#ajax_loader').hide();
+
+                        parent.setAjaxData(data,true);
+
+					}
+
+				});
+
+			} catch (e) {
+
+			}
+
+			// End of our new ajax code
+
+			this.form.action = oldUrl;
+
+			if (e) {
+
+				throw e;
+
+			}
+
+		}
+
+	}.bind(productAddToCartForm);
+
+    productAddToCartForm.submitLight = function(button, url){
+
+            if(this.validator) {
+
+                var nv = Validation.methods;
+
+                delete Validation.methods['required-entry'];
+
+                delete Validation.methods['validate-one-required'];
+
+                delete Validation.methods['validate-one-required-by-name'];
+
+                if (this.validator.validate()) {
+
+                    if (url) {
+
+                        this.form.action = url;
+
+                    }
+
+                    this.form.submit();
+
+                }
+
+                Object.extend(Validation.methods, nv);
+
+            }
+
+        }.bind(productAddToCartForm);
+
+    //]]>
+
+    </script> 
+  </div>
+</div>

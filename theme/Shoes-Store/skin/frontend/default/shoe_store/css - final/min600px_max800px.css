@@ -1,0 +1,31 @@
+.cart .discount, .cart .shipping {
+ width: 94%;
+}
+ .cart .totals {
+ border: 1px solid #E6E6E6;
+ float: left;
+ /*width: 98%;*/
+}
+ .form-list li.wide input.input-text {
+ width:94%;
+}
+ .form-list li.wide .input-box {
+ width: 94%;
+}
+ #cloud-zoom-big {
+display:none!important;
+}
+ .mousetrap {
+display:none!important;
+}
+ .fancybox.quickllook {
+display:none!important;
+}
+#checkout-step-login .col2-set .col-2 {
+    float: right;
+    width: 100%;
+}
+#checkout-step-login .col2-set .col-1 {
+    float: left;
+    width: 100%;
+}

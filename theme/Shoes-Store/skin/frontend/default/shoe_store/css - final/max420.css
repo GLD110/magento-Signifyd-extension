@@ -1,0 +1,107 @@
+.header .form-search {
+ width: 210px;
+}
+ .header .form-search input.input-text {
+ width: 142px;
+}
+ .more-views.jcarousel-container {
+ width: 155px;
+}
+ .more-views .jcarousel-clip.jcarousel-clip-horizontal {
+ width: 155px;
+}
+ .more-views .jcarousel-prev.jcarousel-prev-horizontal {
+ left:-20px!important;
+}
+ .more-views .jcarousel-next.jcarousel-next-horizontal {
+ right:-20px!important;
+}
+ .header .welcome-msg {
+ float: none;
+ margin: 5px 0;
+ padding:5px 0px;
+ text-align: center;
+ width: 100%;
+}
+ .phone {
+ display: inline-block;
+ float: none;
+ padding: 2px 25px 2px 32px;
+}
+ .box-reviews .data-table th {
+ font-weight: normal;
+ padding: 5px;
+}
+ .box-reviews .data-table td {
+ padding: 0;
+}
+ .box-reviews .data-table thead th {
+ font-size: 10px;
+ font-weight: normal;
+ padding: 2px;
+}
+ .box-reviews .data-table {
+ border: 1px solid #E6E6E6;
+ width: 70%;
+}
+ .product-view .box-reviews .form-add .form-list input.input-text, .product-view .box-reviews .form-add .form-list textarea {
+ width: 220px;
+}
+ .product-view .box-reviews .form-add .form-list .input-box {
+ width: 250px;
+}
+ .product-tabs li a {
+ font-size: 11px;
+ padding: 5px;
+}
+ .footer_top .form-subscribe input {
+ width: 175px;
+}
+ .form-list li.wide input.input-text {
+ width: 235px;
+}
+ .form-list li.wide .input-box {
+ width: 245px;
+}
+ .form-list input.input-text {
+ width: 235px;
+}
+ .form-list select {
+ width: 241px;
+}
+ .form-list .input-box {
+ clear: both;
+ display: block;
+ width: 250px;
+}
+ .form-list .field {
+ float: left;
+ width: 235px;
+}
+ #cloud-zoom-big {
+display:none!important;
+}
+ .fancybox.quickllook {
+display:none!important;
+}
+ .cart .discount, .cart .shipping {
+/* width: 94%;*/
+}
+ .cart .totals {
+ border: 1px solid #E6E6E6;
+ float: left;
+}
+ .quickBtn {
+display:none;
+}
+ .mousetrap {
+display:none!important;
+}
+#checkout-step-login .col2-set .col-2 {
+    float: right;
+    width: 100%;
+}
+#checkout-step-login .col2-set .col-1 {
+    float: left;
+    width: 100%;
+}
